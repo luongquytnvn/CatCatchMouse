@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Cat Catch Mouse</title>
+</head>
+<body>
+<script>
+    let Mouse = function (name, weight, speed) {
+        this.name = name;
+        this.weight = weight;
+        this.speed = speed;
+        this.status = true;
+        this.getName = function () {
+            return this.name;
+        };
+        this.getWeight = function () {
+            return this.weight;
+        };
+        this.getSpeed = function () {
+            return this.speed;
+        };
+        this.getStatus = function () {
+            return this.status;
+        };
+        this.mouseSound = function () {
+            alert('Chít chít');
+        }
+    };
+    let Cat = function (name, weight, maxspeed) {
+        this.name = name;
+        this.weight = weight;
+        this.maxspeed = maxspeed;
+        this.catSound = function () {
+            alert('meo meo');
+        };
+        this.catchMouse = function (mouse) {
+            if (this.maxspeed > mouse.speed) {
+                alert(this.name + ' catched ' + mouse.name);
+            } else {
+                alert(this.name + ' không bắt được ' + mouse.name);
+            }
+        };
+        this.eatMouse = function (mouse) {
+            if (mouse.status) {
+                this.weight += mouse.weight;
+            } else {
+                alert('Chuột đã chết');
+            }
+        }
+    }
+    let tom = new Cat('Tom', 50, 50);
+    let jerry = new Mouse('Jerry', 10, 40);
+    let micky = new Mouse('Micky', 15, 60);
+    let du = new Mouse('Dư', 20, 45);
+</script>
+</body>
+</html>
